@@ -1,7 +1,7 @@
 import { useEffect, useId, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import './_authContent.scss';
+import './_AuthContent.scss';
 import { checkLogin, loginUser } from "../../../slice/authSlice";
 
 
