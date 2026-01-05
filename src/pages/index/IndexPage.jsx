@@ -3,7 +3,7 @@ import { MODALS, open } from "../../slice/modalSlice";
 import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import './_index.scss';//引入指定樣式
-import AuthContent from "./authContent/authContent";
+import AuthContent from "./AuthContent/AuthContent";
 import 預約資料 from "../預約資料/預約資料";
 
 
