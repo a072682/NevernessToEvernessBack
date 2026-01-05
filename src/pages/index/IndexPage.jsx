@@ -15,7 +15,7 @@ function IndexPage (){
     //#region SEO流程宣告
     useEffect(() => {
         //標題
-        document.title = "首頁 | 基礎環境架構";
+        document.title = "異環|複現專案後台";
 
         //簡介
         let metaTag = document.querySelector("meta[name='description']");
@@ -26,7 +26,7 @@ function IndexPage (){
         }
         metaTag.setAttribute(
             "content",
-            "基礎環境架構首頁頁面"
+            "專案後臺首頁"
         );
     }, []);
     //#endregion
