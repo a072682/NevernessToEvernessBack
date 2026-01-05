@@ -1,0 +1,281 @@
+
+// 元件最外圍
+.編輯文章{
+    width: 100%;
+    height: 100dvh;
+    background-color: rgb(104, 104, 104);
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    overflow: hidden;
+
+    // 頁面內容
+    .編輯文章Page{
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        height: calc(100% - 9%);
+        overflow-y: auto;   // ← 讓右側捲軸出現
+        overflow-x: hidden; // ← 水平不要捲軸
+        /* 背景圖片 */
+        .BgImg{
+            position: absolute;
+            inset: 0;
+            // width: 100%;
+            // height: 100%;
+            object-fit: cover; // 跟背景圖 cover 一樣，充滿且裁切
+            pointer-events: none; // 避免擋到前景點擊
+            z-index: 0;
+        }
+        /* 背景圖片 */
+
+        /* 主頁面內容 */
+        .編輯文章Content{
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            height: auto;     
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            align-items: start;
+            gap: 12px;
+            
+            // 標題設定
+            .titleSet{
+                color: #ffffff;
+            }
+            // 標題設定
+
+            // 元件最外圍
+            .MessageItemBox{
+                border: 2px solid #000000;
+                padding: 30px;
+                border-radius: 8px;
+                background-color: #2e2e2e;
+                background: linear-gradient(
+                        to bottom, 
+                        rgba(0, 0, 0, 0.5) 0%,    /* 上：完全透明 */
+                        rgb(0, 0, 0) 100%  /* 下：純紅色 */
+                );
+                width: 100%;
+                height: auto;
+                overflow: hidden;
+                overflow-y: auto;   // ← 讓右側捲軸出現
+                overflow-x: hidden; // ← 水平不要捲軸
+                flex-shrink: 0; //不允許這個元素被壓縮
+
+                // 捲軸的寬度
+                &::-webkit-scrollbar {
+                    width: 8px;
+                }
+
+                // 捲軸的軌道（背景）
+                &::-webkit-scrollbar-track {
+                    background: transparent;
+                    border-radius: 4px;
+                }
+
+                // 捲軸本體（可以拉動的部分）
+                &::-webkit-scrollbar-thumb {
+                    background: #999;
+                    border-radius: 4px;
+                }
+
+                // 滑鼠 hover 在捲軸上
+                &::-webkit-scrollbar-thumb:hover {
+                    background: #999;
+                }
+                
+                //標題設定
+                .titleSet{
+                    color: #ffffff;
+                }
+                //標題設定
+
+                // 訊息項目本體
+                .messageItem{
+                    width: 100%;
+                    height: auto;
+                    padding: 12px 0px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    gap: 12px;
+                    border-bottom: 2px solid rgb(214, 214, 214);
+
+                    // 類別設定
+                    .class{
+                        transform: skew(-15deg);
+                        font-size: clamp(16px, 1.5vw, 20px);
+                        padding: 0px 2%;
+                        border-radius: 4px;
+                        white-space: nowrap;//取消文字自動換行
+
+                        &.system{
+                            color: rgb(49, 49, 49);
+                            background-color: rgb(177, 177, 177);
+                        }
+
+                        &.activity{
+                            color: rgb(255, 255, 255);
+                            background-color: rgb(254, 90, 149);
+                        }
+
+                        &.gamenews{
+                            color: rgb(49, 49, 49);
+                            background-color: rgb(109, 220, 237);
+                        }
+                    }
+                    // 類別設定
+
+                    // 內容設定
+                    .content{
+                        max-width: 60%;
+                        margin-right: auto;
+                        color: rgb(223, 223, 223);
+                        font-size: clamp(16px, 1.5vw, 20px);
+                        white-space: nowrap;//取消文字自動換行
+                        overflow: hidden;
+                        text-overflow: ellipsis;//將多餘文字改為...
+                    }
+                    // 內容設定
+
+                    // 時間設定
+                    .time{
+                        color: rgb(223, 223, 223);
+                        font-size: clamp(16px, 1.5vw, 20px);
+                        white-space: nowrap;//取消文字自動換行
+                    }
+                    // 時間設定
+
+                    // 刪除文章按鈕設定
+                    .delBtn{
+                        border: none;
+                        color: #1d1d1d;
+                        font-size: 16px;
+                        background-color: #6ddced;
+                        border-radius: 8px;
+                    }
+                    // 刪除文章按鈕設定
+                }
+                // 訊息項目本體
+            }
+            // 元件最外圍
+            
+            // 輸入群組設定
+            .inputGroup{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: start;
+                gap: 12px;
+                //標籤設定
+                .labelSet{
+                    color: #ffffff;
+                }
+                //標籤設定
+                
+                // 輸入端設定
+                .inputSet{
+                    border-radius: 8px;
+                    background-color: transparent;
+                    color: #ffffff;
+                    padding: 12px;
+
+                    &::placeholder{
+                        color: #bbbbbb;
+                    }
+                }
+                // 輸入端設定
+            }
+            // 輸入群組設定
+
+            // 下拉元件最外層
+            .CustomDropdown{
+
+                /* 元件標頭 */
+                .DropdownHeader{
+                    
+                    //移除小箭頭
+                    &.dropdown-toggle::after{
+                    content: "";
+                    display: none;
+                    }
+                    //移除小箭頭
+
+                    // 要放置的元件位置
+                    .key{
+                        color: #6ddced;
+                        font-size: 16px;
+                        background-color: #1d1d1d;
+                        border: 2px solid #6ddced;
+                        border-radius: 8px;
+                        //寬度以元件最外層為準
+                        width: 150px;
+                        padding: 0.75rem 1rem;
+                        cursor: pointer;
+                        text-align: center;
+                        &:hover{
+                            color: #1d1d1d;
+                            font-size: 16px;
+                            background-color: #6ddced;
+                            border: 2px solid #6ddced;
+                        }
+                    }
+                    // 要放置的元件位置
+                }
+                
+                /* 下拉元件範圍 */
+                .dropdownMenuSet{
+                    //寬度以元件最外層為準
+                    width: 100%;
+                    //position以元件最外層為準
+                    min-width:0px;//允許空間縮小
+                    padding: 0px;
+                    display: none;
+                    background-color: transparent;
+                    &.show{
+                        margin-top: 6px;
+                        display: flex;
+                        flex-direction: column;
+                        transform: translate(0px, 80px);
+                        gap: 6px;
+                    }
+                    /* 內部選項設定 */
+                    .menuItemSet {
+                        width: 100%;
+                        border: 2px solid #6ddced;
+                        background-color: rgb(0, 0, 0);
+                        color: #6ddced;
+                        font-size: 16px;
+                        border-radius: 8px;
+                        cursor: pointer;
+                        padding: 0.75rem 1rem;
+                        &:hover {
+                            background-color: #6ddced;
+                            color: #000000;
+                        }
+                    }
+                }
+                /* 下拉元件範圍 */
+            }
+            // 下拉元件最外層
+
+            // 按鈕設定
+            .btnSet{
+                border: none;
+                color: #1d1d1d;
+                font-size: 16px;
+                background-color: #6ddced;
+                border-radius: 8px;
+            }
+            // 按鈕設定
+        }
+        
+        /* 主頁面內容 */
+    }
+    // 頁面內容
+}
+// 元件最外圍

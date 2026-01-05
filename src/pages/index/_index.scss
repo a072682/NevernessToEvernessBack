@@ -1,0 +1,55 @@
+
+// 元件最外圍
+.index{
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100dvh;
+    background-color: rgb(104, 104, 104);
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    overflow: hidden;
+    
+    // 頁面內容
+    .indexPage{
+        
+        position: relative;
+        width: 100%;
+        height: 91%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        /* 背景圖片 */
+        .BgImg{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            inset: 0;
+            object-fit: cover; // 跟背景圖 cover 一樣，充滿且裁切
+            pointer-events: none; // 避免擋到前景點擊
+            z-index: 0;
+        }
+        /* 背景圖片 */
+
+        /* 主頁面內容 */
+        .indexContent{
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+
+            .textSet{
+                text-align: center;
+                color: #ffffff;
+            }
+        }
+        
+        /* 主頁面內容 */
+    }
+    // 頁面內容
+}
+// 元件最外圍

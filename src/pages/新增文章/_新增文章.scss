@@ -1,0 +1,172 @@
+
+// 元件最外圍
+.新增文章{
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100dvh;
+    background-color: rgb(104, 104, 104);
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    
+    
+    // 頁面內容
+    .新增文章Page{
+        position: relative;
+        width: 100%;
+        height: 91%;
+        display: flex;
+        justify-content: center;
+        align-items: start;
+        overflow: hidden;
+        overflow-y: auto;   // ← 讓右側捲軸出現
+        overflow-x: hidden; // ← 水平不要捲軸
+        
+        /* 背景圖片 */
+        .BgImg{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            inset: 0;
+            object-fit: cover; // 跟背景圖 cover 一樣，充滿且裁切
+            pointer-events: none; // 避免擋到前景點擊
+            z-index: 0;
+        }
+        /* 背景圖片 */
+        
+
+        /* 主頁面內容 */
+        .新增文章Content{
+            position: relative;
+            // top: 0;
+            // left: 0;
+            z-index: 1;
+            width: 100%;
+            height: auto;     
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            align-items: start;
+            gap: 12px;
+            //標題設定
+            .titleSet{
+                color: #ffffff;
+            }
+            //標題設定
+
+            //按鈕設定
+            .btnSet{
+                color: #1d1d1d;
+                font-size: 16px;
+                background-color: #6ddced;
+                border-radius: 8px;
+            }
+            //按鈕設定
+
+            // 下拉元件最外層
+            .CustomDropdown{
+
+                /* 元件標頭 */
+                .DropdownHeader{
+                    
+                    //移除小箭頭
+                    &.dropdown-toggle::after{
+                    content: "";
+                    display: none;
+                    }
+                    //移除小箭頭
+
+                    // 要放置的元件位置
+                    .key{
+                        color: #6ddced;
+                        font-size: 16px;
+                        background-color: #1d1d1d;
+                        border: 2px solid #6ddced;
+                        border-radius: 8px;
+                        //寬度以元件最外層為準
+                        width: 150px;
+                        padding: 0.75rem 1rem;
+                        cursor: pointer;
+                        text-align: center;
+                        &:hover{
+                            color: #1d1d1d;
+                            font-size: 16px;
+                            background-color: #6ddced;
+                            border: 2px solid #6ddced;
+                        }
+                    }
+                    // 要放置的元件位置
+                }
+                
+                /* 下拉元件範圍 */
+                .dropdownMenuSet{
+                    //寬度以元件最外層為準
+                    width: 100%;
+                    //position以元件最外層為準
+                    min-width:0px;//允許空間縮小
+                    padding: 0px;
+                    display: none;
+                    background-color: transparent;
+                    &.show{
+                        margin-top: 6px;
+                        display: flex;
+                        flex-direction: column;
+                        transform: translate(0px, 80px);
+                        gap: 6px;
+                    }
+                    /* 內部選項設定 */
+                    .menuItemSet {
+                        width: 100%;
+                        border: 2px solid #6ddced;
+                        background-color: rgb(0, 0, 0);
+                        color: #6ddced;
+                        font-size: 16px;
+                        border-radius: 8px;
+                        cursor: pointer;
+                        padding: 0.75rem 1rem;
+                        &:hover {
+                            background-color: #6ddced;
+                            color: #000000;
+                        }
+                    }
+                }
+                /* 下拉元件範圍 */
+            }
+            // 下拉元件最外層
+            
+            // 輸入群組設定
+            .inputGroup{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: start;
+                gap: 12px;
+                //標籤設定
+                .labelSet{
+                    color: #ffffff;
+                }
+                //標籤設定
+                
+                // 輸入端設定
+                .inputSet{
+                    border-radius: 8px;
+                    background-color: transparent;
+                    color: #ffffff;
+                    padding: 12px;
+
+                    &::placeholder{
+                        color: #bbbbbb;
+                    }
+                }
+                // 輸入端設定
+            }
+            // 輸入群組設定
+        }
+        
+        /* 主頁面內容 */
+    }
+    // 頁面內容
+}
+// 元件最外圍

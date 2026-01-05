@@ -1,0 +1,51 @@
+.testModal{
+    width: 100%;
+    min-height: 100dvh;
+    background-color: rgba(0,0,0,0.5);
+    position: fixed;   /* 覆蓋視窗 */
+    inset: 0;          /* top/right/bottom/left: 0 */
+    z-index: 2000;     /* 確保比 header 等都高；> 1055 即可 */
+    display: flex;     /* 用 flex 置中內容（不依賴 bootstrap 的 class） */
+    align-items: center;
+    justify-content: center;
+    overflow-y: auto;             /* 🔥 遮罩本身可上下滾動 */
+    -webkit-overflow-scrolling: touch; /* iOS 慣性滾動 */
+    /* 手機上不要垂直置中，否則標題常被吃掉且無法往上捲 */
+    @media (max-width: 576px){
+        align-items: flex-start;    /* 🔥 靠上排列 */
+        padding: 12px;
+    }
+    &.test01{
+        //定位效果
+        .modalDialog{
+
+            // model整體元件
+            .modalContent{
+
+                //header設定
+                .modalHeader{
+                    border: none;
+                    // header背景設定
+                    &.LoginModalHeaderBgSet{
+                        background-color: #6E002C;
+                    }
+                    
+                }
+
+                //model本體設定
+                .LoginModalBodySet{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    background: linear-gradient(90deg, #000000 0%,#60003A 100%);
+                    border-radius: 0 0 5px 5px;
+                    border:none;
+                    padding: 32px;
+                    gap: 12px;
+                    color: #ffffff;
+                }
+            }
+        }
+    }  
+}

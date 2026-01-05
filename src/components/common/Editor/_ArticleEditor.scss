@@ -1,0 +1,56 @@
+
+.tinymceBox{
+    width: 100%;
+    height: auto;
+    //套件最外圍
+    .tox{
+
+        &.tox-tinymce{
+            border: 2px solid #6ddced;
+            //套件內容區
+            .tox-editor-container {
+
+                //套件工具列外圍
+                .tox-editor-header{
+                    background-color: #1d1d1d;//工具列底色設定
+                    //工作列群組顯示區塊
+                    .tox-toolbar-overlord{
+                        background-color: transparent;
+
+                        .tox-toolbar__primary{
+                            background-color: transparent;
+
+                            .tox-toolbar__group{
+                                
+                                .tox-tbtn{
+                                    //icon背景底色設定
+                                    background-color: #1d1d1d;
+                                    .tox-tbtn__select-label{
+                                        color: #ffffff;
+                                    }
+                                    .tox-icon{
+                                        
+                                        svg{
+                                            //icon顏色設定
+                                            fill: #6ddced;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    /* 工具列背景 */
+                }
+                //套件工具列外圍
+            }
+            //套件內容區
+        }
+    }
+    //套件最外圍
+
+    // 打字區塊
+    .tinymceSet{
+        
+    }
+    // 打字區塊
+}

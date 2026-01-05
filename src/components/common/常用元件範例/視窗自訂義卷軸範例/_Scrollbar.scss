@@ -1,0 +1,35 @@
+
+
+
+.box{
+    width: 500px;
+    height: 200px;
+    overflow-y: auto;   // ← 讓右側捲軸出現
+    overflow-x: hidden; // ← 水平不要捲軸
+
+    // 捲軸的寬度
+    &::-webkit-scrollbar {
+        width: 4px;
+    }
+
+    // 捲軸的軌道（背景）
+    &::-webkit-scrollbar-track {
+        background: #f0f0f0;
+        border-radius: 4px;
+    }
+
+    // 捲軸本體（可以拉動的部分）
+    &::-webkit-scrollbar-thumb {
+        background: #c2c2c2;
+        border-radius: 4px;
+    }
+
+    // 滑鼠 hover 在捲軸上
+    &::-webkit-scrollbar-thumb:hover {
+        background: #999;
+    }
+
+    .textSet{
+        font-size: 16px;
+    }
+}

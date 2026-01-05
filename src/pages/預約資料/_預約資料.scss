@@ -1,0 +1,81 @@
+
+// 元件最外圍
+.預約資料{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(104, 104, 104);
+
+    /* 背景圖片 */
+    .BgImg{
+        position: absolute;
+        inset: 0;
+        // width: 100%;
+        // height: 100%;
+        object-fit: cover; // 跟背景圖 cover 一樣，充滿且裁切
+        pointer-events: none; // 避免擋到前景點擊
+        z-index: 0;
+    }
+    /* 背景圖片 */
+
+    // 頁面內容
+    .預約資料Page{
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        padding: 12px;
+        //標題列表
+        .titleBox{
+            width: 100%;
+            height: auto;
+            display: flex;
+            //標題設定
+            .titleSet{
+                text-align: center;
+                width: 100%;
+                color: #ffffff;
+            }
+            //標題設定
+        }
+        //標題列表
+        
+        //資料顯示區塊
+        .dataBox{
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            //資料列表
+            .itemBox{
+                width: 100%;
+                height: auto;
+                display: flex;
+                //資料設定
+                .itemSet{
+                    text-align: center;
+                    width: 100%;
+                    color: #ffffff;
+                }
+                //資料設定
+
+                //主機資料設定
+                .itemPlatSet{
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 5%;
+                    .platDataSet{
+                        color: #ffffff;
+                    }
+                }
+                //主機資料設定
+            } 
+            //資料列表
+        }
+        //資料顯示區塊
+        
+    }
+    // 頁面內容
+}
+// 元件最外圍
