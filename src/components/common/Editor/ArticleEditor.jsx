@@ -3,6 +3,7 @@ import axios from 'axios';
 import './_ArticleEditor.scss';
 
 const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+const editorApiKey = import.meta.env.VITE_EDITOR_API_KEY;
 
 export default function ArticleEditor({value, onChange, uploadFolder = 'testFolder', setTempImages}) {
 
@@ -104,7 +105,7 @@ export default function ArticleEditor({value, onChange, uploadFolder = 'testFold
         <div className='tinymceBox'>
             <Editor
                 className="tinymceSet"
-                apiKey="oolcf7lp0e9ytgb09urqt5u3833g65oqfntw2j1rfvsldoau"
+                apiKey={editorApiKey}
                 value={value}
                 init={editorInit}
                 onEditorChange={onChange}
