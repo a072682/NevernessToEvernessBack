@@ -65,7 +65,6 @@ function Header(){
                     {/* lg 以上選項區塊 */}
                     <div className="navbarItem-box d-none d-lg-flex">
                         {/* link選項 */}
-                        <Nav.Link as={NavLink} to="/Page0" className="navbarItem-set">Page0</Nav.Link>
                         <Nav.Link as={NavLink} to="/新增文章" className="navbarItem-set">新增文章</Nav.Link>
                         <Nav.Link as={NavLink} to="/編輯文章" className="navbarItem-set">編輯文章</Nav.Link>
                         {/* link選項 */}
