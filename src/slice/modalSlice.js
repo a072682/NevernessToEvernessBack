@@ -4,7 +4,7 @@ import { createSlice } from "@reduxjs/toolkit";
 //#endregion
 //#region 方便之後表達更語意化像是open(MODALS.LOGIN) 比 open("login") 更清楚
     export const MODALS = {
-        TESTMODAL: "testModal",
+        LoginCheckModal: "LoginCheckModal",
         TESTMODAL02: "testModal02",
     };
 //#endregion

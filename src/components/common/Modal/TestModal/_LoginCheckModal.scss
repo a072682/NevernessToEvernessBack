@@ -1,4 +1,4 @@
-.testModal{
+.Mask{
     width: 100%;
     min-height: 100dvh;
     background-color: rgba(0,0,0,0.5);
@@ -15,22 +15,12 @@
         align-items: flex-start;    /* 🔥 靠上排列 */
         padding: 12px;
     }
-    &.test01{
+    &.LoginCheckModal{
         //定位效果
         .modalDialog{
 
             // model整體元件
             .modalContent{
-
-                //header設定
-                .modalHeader{
-                    border: none;
-                    // header背景設定
-                    &.LoginModalHeaderBgSet{
-                        background-color: #6E002C;
-                    }
-                    
-                }
 
                 //model本體設定
                 .LoginModalBodySet{
@@ -38,8 +28,8 @@
                     flex-direction: column;
                     justify-content: center;
                     align-items: center;
-                    background: linear-gradient(90deg, #000000 0%,#60003A 100%);
-                    border-radius: 0 0 5px 5px;
+                    background-color: #1d1d1d;
+                    border-radius: 8px;
                     border:none;
                     padding: 32px;
                     gap: 12px;

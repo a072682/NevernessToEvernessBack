@@ -2,8 +2,8 @@ import { useEffect, useMemo } from "react";
 import { createPortal } from "react-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { close, open, MODALS } from "../../../slice/modalSlice";
-import TestModal from "../Modal/TestModal/TestModal";
 import TestModal02 from "../Modal/TestModal02/TestModal02";
+import LoginCheckModal from "../Modal/TestModal/LoginCheckModal";
 
 
 
@@ -28,10 +28,10 @@ export default function ModalRoot() {
         const prev = document.body.style.overflow;
         if (active) {
             document.body.style.overflow = "hidden";
-            console.log("滾動鎖住");
+            //console.log("滾動鎖住");
         }else{
             document.body.style.overflow = prev || "auto";
-            console.log("滾動解除");
+            //console.log("滾動解除");
         } 
         return () => { 
             document.body.style.overflow = prev || "auto"; 
@@ -66,9 +66,9 @@ export default function ModalRoot() {
     // 依名稱決定要渲染哪個 modal 內容
     const content = useMemo(() => {
       //如果狀態名稱是LOGIN
-      if (active === MODALS.TESTMODAL) {
+      if (active === MODALS.LoginCheckModal) {
         return (
-          <TestModal
+          <LoginCheckModal
             //如果要關閉就使用 onClose?()即可並不是onClose執行完就會執行onSwitch
             onClose={() => dispatch(close())}
             //如果要關閉就使用 onClose?()即可並不是onClose執行完就會執行onSwitch

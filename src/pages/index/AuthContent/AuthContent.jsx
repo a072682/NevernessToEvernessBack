@@ -2,7 +2,8 @@ import { useEffect, useId, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import './_AuthContent.scss';
-import { checkLogin, loginUser } from "../../../slice/authSlice";
+import { authMsgUpLoad, checkLogin, loginUser } from "../../../slice/authSlice";
+import { MODALS, open } from "../../../slice/modalSlice";
 
 
 
@@ -40,8 +41,8 @@ function AuthContent (){
         useEffect(()=>{},[nameErrorMsg]);
         const [passWordErrorMsg,setPassWordErrorMsg] = useState("");
         useEffect(()=>{},[passWordErrorMsg]);
-        const [errorMsg,setErrorMsg] = useState("");
-        useEffect(()=>{},[errorMsg]);
+        // const [errorMsg,setErrorMsg] = useState("");
+        // useEffect(()=>{},[errorMsg]);
     //#endregion
 
     //#region 確認錯誤訊息函式
@@ -68,7 +69,7 @@ function AuthContent (){
                 ok = false;
             }
 
-            return ok;  // ✅ 回傳是否通過
+            return ok;  // 回傳是否通過
         };
     //#endregion
 
@@ -80,12 +81,15 @@ function AuthContent (){
 
             // 有錯就中斷，不要送出
             if (!errorsMsgCheck()){
-                console.log("問題點1");
+                //console.log("問題點1");
                 return; 
             }
             // 有錯就中斷，不要送出
             try{
-                console.log("問題點2");
+                //console.log("問題點2");
+                dispatch(authMsgUpLoad("會員登入中請稍後"));
+                dispatch(open(MODALS.LoginCheckModal));
+                
                 await dispatch(loginUser(account)).unwrap();
                 //console.log("成功登入");
                 await dispatch(checkLogin()).unwrap();
@@ -96,10 +100,10 @@ function AuthContent (){
                 });
                 setNameErrorMsg("");
                 setPassWordErrorMsg("");
-                setErrorMsg("")
+                //setErrorMsg("");
             }catch(error){
                 console.log("登入失敗",error);
-                setErrorMsg(error?.error || "登入失敗");
+                //setErrorMsg(error?.error || "登入失敗");
             }
         }
         //會員登入函式
@@ -140,7 +144,7 @@ function AuthContent (){
                             </div>
 
                             <div className="submitBtnGroup">
-                                {errorMsg && <div className="text-danger mt-1">{errorMsg}</div>}
+                                {/* {errorMsg && <div className="text-danger mt-1">{errorMsg}</div>} */}
                                 <button type="onSubmit" className="formBtn-set">登入</button>
                             </div> 
                         </form>

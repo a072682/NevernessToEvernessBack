@@ -13,15 +13,20 @@ export const authSlice = createSlice({
     name: "auth",
     initialState: {
         loginState:false,
+        authMsg:"",
     },
     reducers: {
         loginStateUpLoad: (state, action) => {
             state.loginState = action.payload;
         },
+        
+        authMsgUpLoad: (state, action) => {
+            state.authMsg = action.payload;
+        },
     },
 });
 
-export const { loginStateUpLoad } = authSlice.actions;
+export const { loginStateUpLoad, authMsgUpLoad } = authSlice.actions;
 
 //#region 測試連線
     //測試連線
@@ -65,6 +70,7 @@ export const loginUser = createAsyncThunk(
             });
         } catch (error) {
             console.log("登入失敗",error.response.data);
+            dispatch(authMsgUpLoad(error.response.data.message));
             dispatch(loginStateUpLoad(false));
             return rejectWithValue(error.response.data);
         }
@@ -79,9 +85,11 @@ export const checkLogin = createAsyncThunk(
         try {
             const checkLoginRef = await axios.post(`${BASE_URL}/auth/logInCheck`);
             console.log("登入確認成功",checkLoginRef.data);
+            dispatch(authMsgUpLoad("登入成功"));
             dispatch(loginStateUpLoad(true));
         } catch (error) {
             console.log("登入確認失敗",error.response.data);
+            dispatch(authMsgUpLoad(error.response.data.message));
             dispatch(loginStateUpLoad(false));
         }
     }
